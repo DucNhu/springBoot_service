@@ -25,9 +25,12 @@ public class CustomerConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("users").hasRole("USER")
-                .antMatchers("/employees/*").hasRole("ADMIN")
+                .antMatchers("/api/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
-                .httpBasic();
+                .httpBasic()
+                .and()
+                .csrf()
+                .ignoringAntMatchers("/api/**");
     }
 }

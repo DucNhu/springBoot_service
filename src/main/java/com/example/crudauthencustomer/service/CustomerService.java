@@ -4,13 +4,14 @@ import com.example.crudauthencustomer.Models.Customer;
 
 import java.util.List;
 import java.util.Set;
-
 public interface CustomerService {
-    public List<Customer> findAll();
+    public List<Customer> listAll();
 
-    public Customer findById(int theId);
+    public Customer Create(Customer theEmployee);
 
-    public void save(Customer theEmployee);
+    public Customer getById(Long id);
 
-    public void deletebyId(int theId);
+    public Customer save(Customer theEmployee);
+
+    public void deletebyId(Long theId);
 }
