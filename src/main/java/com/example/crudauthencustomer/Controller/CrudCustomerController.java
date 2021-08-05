@@ -35,9 +35,7 @@ public class CrudCustomerController {
     @PostMapping("/create")
     public ResponseEntity<Customer> Create(@RequestBody Customer Customer) {
         Customer Customer1 = customerService.save(Customer);
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("todo", "/api/v1/todo/" + Customer1.getId().toString());
-        return new ResponseEntity<>(Customer1, httpHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>(Customer1, HttpStatus.OK);
     }
 
     @DeleteMapping({"/{CusId}"})

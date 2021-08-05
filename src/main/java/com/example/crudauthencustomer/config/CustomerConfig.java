@@ -25,9 +25,9 @@ public class CustomerConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/api/**").hasAnyRole("HOST", "ADMIN", "USER")
-                .antMatchers(HttpMethod.PUT, "/api/**").hasAnyRole("HOST", "ADMIN", "USER")
-                .antMatchers(HttpMethod.DELETE, "/api/**").hasAnyRole("HOST", "ADMIN", "USER")
+                .antMatchers(HttpMethod.POST, "/api/**").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/api/**").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/api/**").hasAnyRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic()
