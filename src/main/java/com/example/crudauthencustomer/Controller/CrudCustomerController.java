@@ -38,8 +38,14 @@ public class CrudCustomerController {
         return new ResponseEntity<>(Customer1, HttpStatus.OK);
     }
 
+    @PutMapping("/update")
+    public ResponseEntity<Customer> update(@RequestBody Customer Customer) {
+        Customer Customer1 = customerService.update(Customer.getId(),Customer);
+        return new ResponseEntity<>(Customer1, HttpStatus.OK);
+    }
+
     @DeleteMapping({"/{CusId}"})
-    public ResponseEntity<String> deleteTodo(@PathVariable("CusId") Long CusId) {
+    public ResponseEntity<String> deleteCus(@PathVariable("CusId") Long CusId) {
         try {
             customerService.deletebyId(CusId);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

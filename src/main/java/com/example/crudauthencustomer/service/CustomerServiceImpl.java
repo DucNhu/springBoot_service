@@ -37,6 +37,16 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
+    public Customer update(Long id, Customer theEmployee) {
+        Customer customerFromDb = respository.findById(id).get();
+        System.out.println(customerFromDb.toString());
+        customerFromDb.setEmail(theEmployee.getEmail());
+        customerFromDb.setFirst_name(theEmployee.getFirst_name());
+        customerFromDb.setLast_name(theEmployee.getLast_name());
+        return respository.save(customerFromDb);
+    }
+
+    @Override
     public Customer save(Customer theEmployee) {
         return respository.save(theEmployee);
     }
